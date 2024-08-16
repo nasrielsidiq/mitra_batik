@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('cost');
             $table->integer('stocks');
-            $table->string('desccription');
+            $table->string('description');
             $table->text('image')->nullable();
             $table->unsignedBigInteger('id_type');
             $table->unsignedBigInteger('id_seller');

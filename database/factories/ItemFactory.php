@@ -18,11 +18,11 @@ class ItemFactory extends Factory
     {
         return [
             'name' => fake()->slug(),
-            'cost' => fake()->currencyCode(),
+            'cost' => fake()->randomNumber(5),
             'stocks' => fake()->randomNumber(),
-            'description' => fake()->text(100),
-            'id_type' => fake()->numberBetween(1,10),
-            'id_seller' => fake()->numberBetween(1,50)
+            'description' => fake()->text(50),
+            'id_type' => fake()->numberBetween(1,20),
+            'id_seller' => fake()->numberBetween(1,10)
         ];
     }
 }
