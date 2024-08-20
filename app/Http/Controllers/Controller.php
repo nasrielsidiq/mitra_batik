@@ -12,6 +12,8 @@ class Controller extends BaseController
 
     public function home(){
         return view('index');
-        // return redirect('/home')
+    }
+    public function viewLogin(){
+        return view('login');
     }
 }
