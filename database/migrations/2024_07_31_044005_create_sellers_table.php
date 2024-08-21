@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_users');
+            $table->boolean('is_active');
             $table->string('name');
             $table->text('image')->nullable();
             $table->string('description');

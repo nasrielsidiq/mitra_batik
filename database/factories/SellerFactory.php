@@ -20,6 +20,7 @@ class SellerFactory extends Factory
     {
         return [
             'id_users' => fake()->unique()->numberBetween(1,10),
+            'is_active' => true,
             'name' => fake()->company(),
             'description' => fake()->text(100),
             'address' => fake()->address(),
