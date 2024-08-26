@@ -17,12 +17,13 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->slug(),
-            'cost' => fake()->randomNumber(5),
-            'stocks' => fake()->randomNumber(),
+            'name' => fake()->name(),
+            'cost' => fake()->randomNumber(5,true),
+            'stocks' => fake()->randomNumber(3,true),
             'description' => fake()->text(50),
             'id_type' => fake()->numberBetween(1,20),
-            'id_seller' => fake()->numberBetween(1,10)
+            'id_seller' => fake()->numberBetween(1,10),
+            'image' => 'dumy'.fake()->numberBetween(1,5).'.webp'
         ];
     }
 }

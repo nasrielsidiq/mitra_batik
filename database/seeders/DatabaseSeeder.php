@@ -25,10 +25,19 @@ class DatabaseSeeder extends Seeder
         // ]);
         User::create([
             'name' => 'Muca',
-            'username' => 'muca',
+            'username' => 'muca_admin',
             'email' => 'muca@admin.com',
-            'password' => bcrypt('admin123'),
+            'password' => bcrypt('12345678'),
+            'is_banned' => false,
             'is_admin' => true
+        ]);
+        User::create([
+            'name' => 'Muca',
+            'username' => 'muca_user',
+            'email' => 'muca@user.com',
+            'password' => bcrypt('12345678'),
+            'is_banned' => false,
+            'is_admin' => false
         ]);
 
         User::factory(9)->create();

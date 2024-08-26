@@ -9,30 +9,30 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
-        public function login(Request $request)
+    public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => ['required','email'],
+            'email' => ['required', 'email'],
             'password' => 'required'
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
-        $credentials = $request->only('email','password');
+        $credentials = $request->only('email', 'password');
         if (!Auth::attempt($credentials)) {
             Alert::error('Username or password incorrect');
             return redirect()->back();
             // error_log('error');
         }
         $user = Auth::user();
-        if ($user->level) {
+        if ($user->is_admin) {
             return redirect('/admin');
         }
         return redirect('/');
-
     }
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
     }
 }

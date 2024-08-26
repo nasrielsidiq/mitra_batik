@@ -20,6 +20,8 @@ Route::get('/login', [Controller::class,'viewLogin']);
 Route::post('/login', [AuthController::class,'login']);
 Route::middleware('loginweb')->group(function () {
     Route::get('/', [Controller::class, 'home']);
-    Route::get('/', [Controller::class, 'admin' ]);
+    Route::get('/admin', [Controller::class, 'admin']);
+    Route::get('/detail/{id}', [Controller::class, 'detail']);
     Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('transaksi/{id_item}', []);
 });
