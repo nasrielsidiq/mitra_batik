@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('is_banned');
             $table->string('email')->unique();
             $table->string('username')->unique();
+            $table->string('phone_number', 25);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_admin');

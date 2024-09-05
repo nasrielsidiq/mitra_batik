@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +21,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [Controller::class,'viewLogin']);
 Route::post('/login', [AuthController::class,'login']);
 Route::middleware('loginweb')->group(function () {
+    Route::middleware('admin')->group(function() {
+        Route::get('/admin', [Controller::class, 'admin']);
+    });
+
     Route::get('/', [Controller::class, 'home']);
-    Route::get('/admin', [Controller::class, 'admin']);
     Route::get('/detail/{id}', [Controller::class, 'detail']);
     Route::get('/logout', [AuthController::class, 'logout']);
-    Route::post('transaksi/{id_item}', []);
+    Route::get('/order', [Controller::class, 'viewOrder']);
+    Route::get('/order/{id}', [OrderController::class, 'order']);
+    Route::get('/order/update/{id}', [OrderController::class, 'orderUpdate']);
+    Route::get('/transaksi', [Controller::class, 'viewTransaction']);
+    Route::post('/transaksi', [ProdukController::class, 'addTransaction']);
+    Route::get('/ordered', [OrderController::class, 'getOrder']);
 });

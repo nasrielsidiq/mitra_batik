@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->unsignedBigInteger('id_seller');
             $table->timestamps();
-            $table->foreign('id_seller')->references('id')->on('sellers')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

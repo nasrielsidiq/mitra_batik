@@ -19,7 +19,6 @@ class TypeFactory extends Factory
         return [
             'name' => fake()->word(1),
             'description' => fake()->text(100),
-            'id_seller' => fake()->numberBetween(1,10)
         ];
     }
 }

@@ -19,10 +19,8 @@ return new class extends Migration
             $table->string('description');
             $table->text('image')->nullable();
             $table->unsignedBigInteger('id_type');
-            $table->unsignedBigInteger('id_seller');
             $table->timestamps();
             $table->foreign('id_type')->references('id')->on('types')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('id_seller')->references('id')->on('sellers')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Item;
+use App\Models\PaymentType;
 use App\Models\Seller;
 use App\Models\Type;
 use App\Models\User;
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Muca',
             'username' => 'muca_admin',
             'email' => 'muca@admin.com',
+            'phone_number' => fake()->phoneNumber(),
             'password' => bcrypt('12345678'),
             'is_banned' => false,
             'is_admin' => true
@@ -35,15 +37,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'Muca',
             'username' => 'muca_user',
             'email' => 'muca@user.com',
+            'phone_number' => fake()->phoneNumber(),
             'password' => bcrypt('12345678'),
             'is_banned' => false,
             'is_admin' => false
         ]);
 
         User::factory(9)->create();
-        Seller::factory(10)->create();
         Type::factory(20)->create();
         Item::factory(50)->create();
-
+        PaymentType::factory(11)->create();
+        
     }
 }
